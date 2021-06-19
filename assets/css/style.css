@@ -32,4 +32,12 @@ body {
   position: absolute;
   z-index: -1;
 }
+
+.resp {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
 /*# sourceMappingURL=style.css.map */
