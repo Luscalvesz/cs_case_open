@@ -1,12 +1,44 @@
-var boxes = {
+{
     "snakebite": [
-        {"img": "Snakebite-case.png"},
-        {"name": "In Living Color","weapon": "M4A4","rarity": "hidden","img": "M4a4-in-living-color.png"},
-        {"name": "The Traitor","weapon": "USP-S","rarity": "hidden","img": "Usp-s-the-traitor.png"},
-        {"name": "XOXO","weapon": "XM1014","rarity": "exotic","img": "Xm1014-xoxo.png"},
-        {"name": "Food Chain","weapon": "MP9","rarity": "exotic","img": "Mp9-food-chain.png"},
-        {"name": "Chromatic Aberration","weapon": "Galil AR","rarity": "exotic","img": "Galil-ar-chromatic-aberration.png"},
-        {"name": "Slate","weapon": "AK-47","rarity": "remarkable","img": "Ak-47-slate.png"},
+        {
+            "img": "Snakebite-case.png"
+        },
+        {
+            "name": "In Living Color",
+            "weapon": "M4A4",
+            "rarity": "hidden",
+            "img": "M4a4-in-living-color.png"
+        },
+        {
+            "name": "The Traitor",
+            "weapon": "USP-S",
+            "rarity": "hidden",
+            "img": "Usp-s-the-traitor.png"
+        },
+        {
+            "name": "XOXO",
+            "weapon": "XM1014",
+            "rarity": "exotic",
+            "img": "Xm1014-xoxo.png"
+        },
+        {
+            "name": "Food Chain",
+            "weapon": "MP9",
+            "rarity": "exotic",
+            "img": "Mp9-food-chain.png"
+        },
+        {
+            "name": "Chromatic Aberration",
+            "weapon": "Galil AR",
+            "rarity": "exotic",
+            "img": "Galil-ar-chromatic-aberration.png"
+        },
+        {
+            "name": "Slate",
+            "weapon": "AK-47",
+            "rarity": "remarkable",
+            "img": "Ak-47-slate.png"
+        },
         {
             "name": "Trigger Discipline",
             "weapon": "Desert Eagle",
@@ -91,30 +123,3 @@ var boxes = {
         }
     ]
 }
-
-
-console.log(boxes);
-// var obj = JSON.parse(boxes);
-// console.log(obj);
-// obj.boxes.forEach(element => {
-//     console.log(element); 
-//     console.log(element.name); 
-// });
-
-var teste = boxes.snakebite[0].img
-
-var img = document.getElementById('img')
-img.src = './assets/imgs/snakebite/' + teste
-console.log(teste);
-
-
-$(document).ready(function () {
-    $('#carousel').slick({
-        dots: false,
-        infinite: true,
-        arrows: true,
-        speed: 300,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-    });
-});

@@ -23,11 +23,11 @@ body {
 }
 
 .background {
-  background: url("../imgs/background.png") no-repeat;
+  background: url("../imgs/background.jpg") no-repeat;
   background-size: cover;
   height: 100vh;
-  -webkit-filter: blur(8px);
-          filter: blur(8px);
+  -webkit-filter: blur(3px);
+          filter: blur(3px);
   width: 100%;
   position: absolute;
   z-index: -1;
