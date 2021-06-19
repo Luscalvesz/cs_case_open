@@ -1,6 +1,6 @@
 var boxes = {
     "snakebite": [
-        // { "img": "Snakebite-case.png" },
+        {"key": "key.png"},
         { "name": "In Living Color", "weapon": "M4A4", "rarity": "hidden", "img": "M4a4-in-living-color.png" },
         { "name": "The Traitor", "weapon": "USP-S", "rarity": "hidden", "img": "Usp-s-the-traitor.png" },
         { "name": "XOXO", "weapon": "XM1014", "rarity": "exotic", "img": "Xm1014-xoxo.png" },
@@ -20,74 +20,53 @@ var boxes = {
         { "name": "Windblown", "weapon": "Nova", "rarity": "industrial level", "img": "Nova-windblown.png" }
     ],
     "falchion": [
-        // { "img": "falchion-case.png" },
-        { "name": "faca caraio", "weapon": "falchion", "rarity": "hidden", "img": "falchion-knife.png" },
-        { "name": "O.S.I.P.R", "weapon": "M249", "rarity": "industrial level", "img": "M249-osipr.png" },
-        { "name": "O.S.I.P.R", "weapon": "M249", "rarity": "industrial level", "img": "M249-osipr.png" }
-
+        {"key": "key.png"},
+        { "name": "faca caraio", "weapon": "Falchion", "rarity": "hidden", "img": "falchion-knife.png" },
+        { "name": "Hyper Beast", "weapon": "Awp", "rarity": "hidden", "img": "awp-hyper-beast.png" },
+        { "name": "Aquamarine Revenge", "weapon": "AK-47", "rarity": "hidden", "img": "ak-47-aquamarine-revenge.png" },
+        { "name": "Cyrex", "weapon": "SG553", "rarity": "exotic", "img": "sg553-cyrex.png" },
+        { "name": "Nemesis", "weapon": "MP7", "rarity": "exotic", "img": "mp7-nemesis.png" },
+    ],
+    "hidra": [
+        {"key": "key.png"},
+        { "name": "Oni Taiji", "weapon": "AWP", "rarity": "hidden", "img": "awp-oni-taiji.png" },
+        { "name": "Hyper Beast", "weapon": "Five-SeveN", "rarity": "hidden", "img": "five-seven-hyper-beast.png" },
+        { "name": "Hellfire", "weapon": "M4A4", "rarity": "hidden", "img": "m4a4-hellfire.png" },
+        { "name": "Sugar Rush", "weapon": "Galil AR", "rarity": "exotic", "img": "galilar-sugar-rush.png" },
+        { "name": "Cobra Strike", "weapon": "Dual Berettas", "rarity": "exotic", "img": "dual-berettas-cobra-strike.png" }
     ]
 }
 
-
-console.log(boxes);
-// var obj = JSON.parse(boxes);
-// console.log(obj);
-// obj.boxes.forEach(element => {
-//     console.log(element); 
-//     console.log(element.name); 
-// });
-
-
-// var teste = boxes.snakebite[0].img
-// var teste2 = boxes.falchion[0].img
-
-// var img = document.getElementById('img')
-// var img2 = document.getElementById('img2')
-// var batata = document.getElementById('batata')
-// img.src = './assets/imgs/snakebite/' + teste
-// img2.src = './assets/imgs/falchion/' + teste2
-// console.log(teste);
-// console.log(teste2);
-
-
 function callBox(value) {
-    var batata = document.getElementById('batata')
-    var resp = document.getElementById('resp')
-    var itemName = document.getElementById('itemName')
-    var itemImg = document.getElementById('itemImg')
+    var boxItems = document.getElementById('boxItems')
+    boxItems.innerHTML = ""
 
-    resp.innerHTML = ""
-
-    // console.log(value);
-    // if (value == "snakebite") {
-    //     console.log('snakebite caraio');
-    //     batata.src = `./assets/imgs/${value}/${teste}`
-
-
-
-    // }else if (value == "falchion") {
+   
     console.log(value);
 
-    //     console.log('falchion caraio');
-    //     batata.src = `./assets/imgs/${value}/${teste2}`
+    var caixa
 
-    // }
 
-    // var test = `boxes.${value}.img`
-    // var caixa = boxes + `.${value}`
-    var caixa = boxes + `.${value}`
-    // var caixa = boxes
-    var caixateste = boxes.snakebite
 
-    console.log(caixa, "caixa aqui");
-    // console.log(boxes.falchio);
-    // console.log( JSON.parse(caixa));
-    caixateste.forEach(element => {
-        console.log(element);
-        resp.innerHTML += `
-        <div class="item">
-            <img id="itemImg" src="./assets/imgs/${value}/${element.img}">
-            <h4 id="itemName">${element.name}</h4>
+    switch(value) {
+        case 'snakebite':
+          caixa = boxes.snakebite
+        break;
+        case 'falchion':
+          caixa = boxes.falchion
+        break;
+        case 'hidra':
+          caixa = boxes.hidra
+        break;
+        default:
+        caixa = boxes.snakebite
+    }
+    
+    caixa.forEach(element => {
+        boxItems.innerHTML += `
+        <div class="boxItems-item">
+            <img id="itemImg" class="boxItems-item-img" src="./assets/imgs/${value}/${element.img}">
+            <h4 id="itemName" class="boxItems-item-name">${element.weapon} - ${element.name}</h4>
         </div>`
     });
 
@@ -107,12 +86,12 @@ function callBox(value) {
 
 
 $(document).ready(function () {
-    $('#carousel').slick({
+    $('#boxes').slick({
         dots: false,
         infinite: true,
         arrows: true,
         speed: 300,
-        slidesToShow: 1,
+        slidesToShow: 2,
         slidesToScroll: 1,
     });
 });

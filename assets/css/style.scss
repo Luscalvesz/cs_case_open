@@ -4,11 +4,15 @@
   outline: none;
 }
 body{
- position: relative; 
-  // display: flex;
-  // justify-content: center;
-  // align-items: center;
+  background: #4d4d4d;
 }
+// .sidebar{
+//   background: black;
+  
+//   &-item{
+//     width: 25px;
+//   }
+// }
 .main{
   // display: flex;
   // justify-content: center;
@@ -18,12 +22,32 @@ body{
   width: 80%;
   margin: 0 auto;
 
-  &-box{
-    display: flex;
-    justify-content: center;
+  &-boxes{
+    // display: flex;
+    // justify-content: center;
+    &-box{
+
+      &-btn{
+        background: transparent;
+        border: none;
+        cursor: pointer;
+      }
+    }
   }
   
+  .boxItems{
+    display: flex;
+    flex-wrap: wrap;
+    background: #25252e;
+    &-item{
+      &-name{
+        color: white;
+      }
+    }
+  }
+
 }
+
 
 
 .background{
@@ -43,9 +67,28 @@ body{
 
 
 
-
-
-
+.slick-slider{
+  align-items: center;
+}
+.slick-next{
+  background: url('../imgs/arrow.png') no-repeat;
+  border: none;
+  font-size: 0;
+  background-position: center;
+  width: 165px;
+  height: 40px;
+  cursor: pointer;
+}
+.slick-prev{
+  background: url('../imgs/arrow.png') no-repeat;
+  border: none;
+  font-size: 0;
+  background-position: center;
+  width: 165px;
+  height: 40px;
+  cursor: pointer;
+  transform: rotate(180deg);
+}
 
 
 

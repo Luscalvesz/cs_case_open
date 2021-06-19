@@ -6,44 +6,40 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Counter Strike Cases</title>
-  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
   <link rel="stylesheet" type="text/css" href="assets/css/slick.css" />
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
 
 <body>
-  <!-- <div class="background"></div> -->
-  <header>
-
-  </header>
+  <aside class="sidebar">
+    <img class="sidebar-item" src="./assets/imgs/ak-47.png" alt="">
+    <img class="sidebar-item" src="./assets/imgs/cases.png" alt="">
+  </aside>
   <main class="main">
-    <div class="main-box">
-      <img id="img" class="main-box-img" src="./assets/imgs/bravoCase.png">
-      <img id="img2" class="main-box-img" src="./assets/imgs/bravoCase.png">
-      <img id="batata" class="main-box-img" src="#">
-    </div>
-
-
-
-
-
-    <button onclick="callBox(value)" value="snakebite">snakebite</button>
-    <button onclick="callBox(value)" value="falchion">falchion</button>
-
-
-
-
-    <!-- <ul class="main-carousel" id="carousel">
-      <li class="main-carousel-item">coisa 1</li>
-      <li class="main-carousel-item">coisa 2</li>
-      <li class="main-carousel-item">coisa 3</li>
-    </ul> -->
-    <div class="item">
-      <img id="itemImg" src="">
-      <h4 id="itemName">nome</h4>
-    </div>
-    <section id="resp" class="resp">
-
-    </section>
+    <ul class="main-boxes" id="boxes">
+      <li class="main-boxes-box">
+        <button class="main-boxes-box-btn" onclick="callBox(value)" value="falchion">
+          <img id="batata" class="main-boxes-box-img" src="./assets/imgs/falchion/case.png">
+        </button>
+      </li>
+      <li class="main-boxes-box">
+        <button class="main-boxes-box-btn" onclick="callBox(value)" value="snakebite">
+          <img id="batata" class="main-boxes-box-img" src="./assets/imgs/snakebite/case.png">
+        </button>
+      </li>
+      <li class="main-boxes-box">
+        <button class="main-boxes-box-btn" onclick="callBox(value)" value="hidra">
+          <img id="img" class="main-boxes-box-img" src="./assets/imgs/hidra/case.png">
+        </button>
+      </li>
+      <li class="main-boxes-box">
+        <button class="main-boxes-box-btn" onclick="callBox(value)" value="falchion">
+          <img id="img2" class="main-boxes-box-img" src="./assets/imgs/bravoCase.png">
+        </button>
+      </li>
+    </ul>
+    
+    <section id="boxItems" class="boxItems"></section>
   </main>
 
   <script type="text/javascript" src="./assets/script/jquery-3.5.1.min.js"></script>
