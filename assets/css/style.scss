@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   outline: none;
+  font-family: sans-serif;
 }
 body{
   background: #4d4d4d;
@@ -40,9 +41,33 @@ body{
     flex-wrap: wrap;
     background: #25252e;
     &-item{
+      &-weapon{
+        color: white;
+        font-weight: 700;
+      }
       &-name{
         color: white;
+        font-weight: 100;
       }
+    }
+  }
+  .boxBtn{
+    display: flex;
+    align-items: center;
+    &-img{
+      width: 80px;
+    }
+    &-name{
+      color: white;
+    }
+    &-btn{
+      background: #066906;
+      color: white;
+      text-transform: uppercase;
+      padding: 5px 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
     }
   }
 

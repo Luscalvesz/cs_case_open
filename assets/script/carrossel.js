@@ -37,16 +37,12 @@ var boxes = {
     ]
 }
 
+let caixa
 function callBox(value) {
-    var boxItems = document.getElementById('boxItems')
+    let boxItems = document.getElementById('boxItems')
+    let boxBtn = document.getElementById('boxBtn')
     boxItems.innerHTML = ""
-
-   
-    console.log(value);
-
-    var caixa
-
-
+    boxBtn.innerHTML = ""
 
     switch(value) {
         case 'snakebite':
@@ -61,27 +57,30 @@ function callBox(value) {
         default:
         caixa = boxes.snakebite
     }
-    
-    caixa.forEach(element => {
+
+    console.log(caixa);
+    for (let i = 1; i < caixa.length; i++) {
         boxItems.innerHTML += `
         <div class="boxItems-item">
-            <img id="itemImg" class="boxItems-item-img" src="./assets/imgs/${value}/${element.img}">
-            <h4 id="itemName" class="boxItems-item-name">${element.weapon} - ${element.name}</h4>
+            <img id="itemImg" class="boxItems-item-img" src="./assets/imgs/${value}/${caixa[i].img}">
+            <h4 id="itemName" class="boxItems-item-weapon">${caixa[i].weapon}</h4>
+            <h4 id="itemName" class="boxItems-item-name">${caixa[i].name}</h4>
         </div>`
-    });
+    }
 
-
-
-
-
-
+    boxBtn.innerHTML = `
+    <img id="itemImg" class="boxBtn-img" src="./assets/imgs/${value}/${caixa[0].key}">
+    <h4 id="itemName" class="boxBtn-name">Usar chave da ${value}</h4>
+    <button id="itemBtn" class="boxBtn-btn" onclick="sortItems()">destrancar recipiente</button>`
 }
 
+function sortItems() {
+    let i = Math.floor((Math.random() * 10) + 1);
+    let resp = document.getElementById('resp')
 
+    resp.innerHTML = `parabéns iha, vc ganhou isso aqui ó ${caixa[i].weapon} - ${caixa[i].name}`
 
-
-
-
+}
 
 
 
