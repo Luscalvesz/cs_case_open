@@ -1,6 +1,7 @@
 var boxes = {
     "snakebite": [
         {"key": "key.png"},
+        {"boxName": "snakebite"},
         { "name": "In Living Color", "weapon": "M4A4", "rarity": "hidden", "img": "M4a4-in-living-color.png" },
         { "name": "The Traitor", "weapon": "USP-S", "rarity": "hidden", "img": "Usp-s-the-traitor.png" },
         { "name": "XOXO", "weapon": "XM1014", "rarity": "exotic", "img": "Xm1014-xoxo.png" },
@@ -21,6 +22,7 @@ var boxes = {
     ],
     "falchion": [
         {"key": "key.png"},
+        {"boxName": "falchion"},
         { "name": "faca caraio", "weapon": "Falchion", "rarity": "hidden", "img": "falchion-knife.png" },
         { "name": "Hyper Beast", "weapon": "Awp", "rarity": "hidden", "img": "awp-hyper-beast.png" },
         { "name": "Aquamarine Revenge", "weapon": "AK-47", "rarity": "hidden", "img": "ak-47-aquamarine-revenge.png" },
@@ -29,6 +31,7 @@ var boxes = {
     ],
     "hidra": [
         {"key": "key.png"},
+        {"boxName": "hidra"},
         { "name": "Oni Taiji", "weapon": "AWP", "rarity": "hidden", "img": "awp-oni-taiji.png" },
         { "name": "Hyper Beast", "weapon": "Five-SeveN", "rarity": "hidden", "img": "five-seven-hyper-beast.png" },
         { "name": "Hellfire", "weapon": "M4A4", "rarity": "hidden", "img": "m4a4-hellfire.png" },
@@ -58,8 +61,7 @@ function callBox(value) {
         caixa = boxes.snakebite
     }
 
-    console.log(caixa);
-    for (let i = 1; i < caixa.length; i++) {
+    for (let i = 2; i < caixa.length; i++) {
         boxItems.innerHTML += `
         <div class="boxItems-item">
             <img id="itemImg" class="boxItems-item-img" src="./assets/imgs/${value}/${caixa[i].img}">
@@ -73,13 +75,22 @@ function callBox(value) {
     <h4 id="itemName" class="boxBtn-name">Usar chave da ${value}</h4>
     <button id="itemBtn" class="boxBtn-btn" onclick="sortItems()">destrancar recipiente</button>`
 }
-
+function callResp() {
+    resp.classList.toggle("active")
+}
 function sortItems() {
-    let i = Math.floor((Math.random() * 10) + 1);
+    let i = Math.floor((Math.random() * caixa.length));
     let resp = document.getElementById('resp')
-
-    resp.innerHTML = `parabéns iha, vc ganhou isso aqui ó ${caixa[i].weapon} - ${caixa[i].name}`
-
+    if (i == 0 || i == 1) {
+        sortItems()
+    }else{
+        callResp()
+        resp.innerHTML = `
+        <button onclick="callResp()">close</button>
+        <h2 class="resp-text">parabéns iha, vc ganhou isso aqui ó<h2>
+        <img class="resp-img" src="assets/imgs/${caixa[1].boxName}/${caixa[i].img}"> 
+        <h3 class="resp-name">${caixa[i].weapon} - ${caixa[i].name}</h3> `
+    }
 }
 
 
