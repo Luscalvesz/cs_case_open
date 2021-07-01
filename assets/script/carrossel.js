@@ -78,18 +78,48 @@ function callBox(value) {
 function callResp() {
     resp.classList.toggle("active")
 }
+// function sortStatus() {
+//     let i = Math.floor((Math.random() * 3));
+//     var status = [
+//         { "status": "ta zuado" },
+//         { "status": "ta novo parça" },
+//         { "status": "ta meio riscado" }
+//     ]
+//     console.log(status[i].status);
+//     var teste = status[i].status
+//     return teste
+// }
 function sortItems() {
-    let i = Math.floor((Math.random() * caixa.length));
+    let n = Math.floor((Math.random() * caixa.length));
     let resp = document.getElementById('resp')
-    if (i == 0 || i == 1) {
+
+
+
+    let i = Math.floor((Math.random() * 3));
+    var status = [
+        { "status": "ta zuado" },
+        { "status": "ta novo parça" },
+        { "status": "ta meio riscado" }
+    ]
+    console.log(status[i].status);
+    var teste = status[i].status
+
+
+
+
+
+
+    if (n == 0 || n == 1) {
         sortItems()
     }else{
         callResp()
         resp.innerHTML = `
         <button onclick="callResp()">close</button>
         <h2 class="resp-text">parabéns iha, vc ganhou isso aqui ó<h2>
-        <img class="resp-img" src="assets/imgs/${caixa[1].boxName}/${caixa[i].img}"> 
-        <h3 class="resp-name">${caixa[i].weapon} - ${caixa[i].name}</h3> `
+        <img class="resp-img" src="assets/imgs/${caixa[1].boxName}/${caixa[n].img}"> 
+        <h3 class="resp-name">${caixa[n].weapon} - ${caixa[n].name}</h3> 
+        <h3 class="resp-name">Status: ${teste}</h3> 
+        `
     }
 }
 
