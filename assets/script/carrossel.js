@@ -28,6 +28,18 @@ var boxes = {
         { "name": "Aquamarine Revenge", "weapon": "AK-47", "rarity": "hidden", "img": "ak-47-aquamarine-revenge.png" },
         { "name": "Cyrex", "weapon": "SG553", "rarity": "exotic", "img": "sg553-cyrex.png" },
         { "name": "Nemesis", "weapon": "MP7", "rarity": "exotic", "img": "mp7-nemesis.png" },
+        { "name": "Yellow Jacket", "weapon": "CZ75-Auto", "rarity": "exotic", "img": "cz75auto-yellow-jacket.png" },
+        { "name": "Handgun", "weapon": "P2000", "rarity": "remarkable", "img": "p2000-handgun.png" },
+        { "name": "Loudmouth", "weapon": "Negev", "rarity": "remarkable", "img": "negev-loudmouth.png" },
+        { "name": "Ruby Poison Dart", "weapon": "MP9", "rarity": "remarkable", "img": "mp9-ruby-poison-dart.png" },
+        { "name": "Evil Daimyo", "weapon": "M4A4", "rarity": "remarkable", "img": "m4a4-evil-daimyo.png" },
+        { "name": "Neural Net", "weapon": "Famas", "rarity": "remarkable", "img": "famas-neural-net.png" },
+        { "name": "Torque", "weapon": "USP-S", "rarity": "industrial level", "img": "usps-torque.png" },
+        { "name": "Riot", "weapon": "UMP-45", "rarity": "industrial level", "img": "ump45-riot.png" },
+        { "name": "Elite Build", "weapon": "P-90", "rarity": "industrial level", "img": "p90-elite-build.png" },
+        { "name": "Ranger", "weapon": "nova", "rarity": "industrial level", "img": "nova-ranger.png" },
+        { "name": "Bunsen Burner", "weapon": "Glock-18", "rarity": "industrial level", "img": "glock18-bunsen-burner.png" },
+        { "name": "Rocket Pop", "weapon": "Galil AR", "rarity": "industrial level", "img": "galilar-rocket-pop.png" },
     ],
     "hidra": [
         {"key": "key.png"},
@@ -114,7 +126,7 @@ function sortItems() {
     }else{
         callResp()
         resp.innerHTML = `
-        <button onclick="callResp()">close</button>
+        <button class="resp-btn" onclick="callResp()">close</button>
         <h2 class="resp-text">parabéns iha, vc ganhou isso aqui ó<h2>
         <img class="resp-img" src="assets/imgs/${caixa[1].boxName}/${caixa[n].img}"> 
         <h3 class="resp-name">${caixa[n].weapon} - ${caixa[n].name}</h3> 
