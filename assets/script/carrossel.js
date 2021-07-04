@@ -48,7 +48,39 @@ var boxes = {
         { "name": "Hyper Beast", "weapon": "Five-SeveN", "rarity": "hidden", "img": "five-seven-hyper-beast.png" },
         { "name": "Hellfire", "weapon": "M4A4", "rarity": "hidden", "img": "m4a4-hellfire.png" },
         { "name": "Sugar Rush", "weapon": "Galil AR", "rarity": "exotic", "img": "galilar-sugar-rush.png" },
-        { "name": "Cobra Strike", "weapon": "Dual Berettas", "rarity": "exotic", "img": "dual-berettas-cobra-strike.png" }
+        { "name": "Cobra Strike", "weapon": "Dual Berettas", "rarity": "exotic", "img": "dual-berettas-cobra-strike.png" },
+        { "name": "Death's Head", "weapon": "SSG 08", "rarity": "remarkable", "img": "ssg08-deaths-head.png" },
+        { "name": "Death Grip", "weapon": "P90", "rarity": "remarkable", "img": "p90-death-grip.png" },
+        { "name": "Red Rock", "weapon": "P250", "rarity": "remarkable", "img": "p250-red-rock.png" },
+        { "name": "Woodsman", "weapon": "P2000", "rarity": "remarkable", "img": "p2000-woodsman.png" },
+        { "name": "Orbit Mk01", "weapon": "AK-47", "rarity": "remarkable", "img": "ak-47-orbit-mk01.png" },
+        { "name": "Metal Flowers", "weapon": "UMP-45", "rarity": "industrial level", "img": "ump45-metal-flowers.png" },
+        { "name": "Cut Out", "weapon": "Tec-9", "rarity": "industrial level", "img": "tec9-cut-out.png" },
+        { "name": "Hard Water", "weapon": "MAG-7", "rarity": "industrial level", "img": "mag7-hard-water.png" },
+        { "name": "Aloha", "weapon": "MAC-10", "rarity": "industrial level", "img": "mac10-aloha.png" },
+        { "name": "Briefing", "weapon": "M4A1-S", "rarity": "industrial level", "img": "m4a1s-briefing.png" },
+        { "name": "Macabre", "weapon": "FAMAS", "rarity": "industrial level", "img": "famas-macabre.png" },
+        { "name": "Blueprint", "weapon": "USP-S", "rarity": "industrial level", "img": "usps-blueprint.png" },
+    ],
+    "gamma": [
+        {"key": "key.png"},
+        {"boxName": "gamma"},
+        { "name": "Mecha Industries", "weapon": "M4A1-S", "rarity": "hidden", "img": "m4a1s-mecha-industries.png" },
+        { "name": "Wasteland Rebel", "weapon": "Glock-18", "rarity": "hidden", "img": "glock18-wasteland-rebel.png" },
+        { "name": "Bloodsport", "weapon": "SCAR-20", "rarity": "exotic", "img": "scar20-bloodsport.png" },
+        { "name": "Imperial Dragon", "weapon": "P2000", "rarity": "exotic", "img": "p2000-imperial-dragon.png" },
+        { "name": "Desolate Space", "weapon": "M4A4", "rarity": "exotic", "img": "m4a4-desolate-space.png" },
+        { "name": "Limelight", "weapon": "Sawed-Off", "rarity": "remarkable", "img": "sawedoff-limelight.png" },
+        { "name": "Reboot", "weapon": "R8 Revolver", "rarity": "remarkable", "img": "r8revolver-reboot.png" },
+        { "name": "Chopper", "weapon": "P90", "rarity": "remarkable", "img": "p90-chopper.png" },
+        { "name": "Phobos", "weapon": "AWP", "rarity": "remarkable", "img": "awp-phobos.png" },
+        { "name": "Aristocrat", "weapon": "AUG", "rarity": "remarkable", "img": "aug-aristocrat.png" },
+        { "name": "Ice Cap", "weapon": "Tec-9", "rarity": "industrial lever", "img": "tec9-ice-cap.png" },
+        { "name": "Aerial", "weapon": "SG 553", "rarity": "industrial level", "img": "sg553-aerial.png" },
+        { "name": "Harvester", "weapon": "PP-Bizon", "rarity": "industrial level", "img": "ppbizon-harvester.png" },
+        { "name": "Exo", "weapon": "Nova", "rarity": "industrial level", "img": "nova-exo.png" },
+        { "name": "Carnivore", "weapon": "MAC-10", "rarity": "industrial level", "img": "mac10-carnivore.png" },
+        { "name": "Violent Daimyo", "weapon": "Five-SeveN", "rarity": "industrial level", "img": "fiveseven-violent-daimyo.png" }
     ]
 }
 
@@ -68,6 +100,9 @@ function callBox(value) {
         break;
         case 'hidra':
           caixa = boxes.hidra
+        break;
+        case 'gamma':
+          caixa = boxes.gamma
         break;
         default:
         caixa = boxes.snakebite
@@ -90,22 +125,9 @@ function callBox(value) {
 function callResp() {
     resp.classList.toggle("active")
 }
-// function sortStatus() {
-//     let i = Math.floor((Math.random() * 3));
-//     var status = [
-//         { "status": "ta zuado" },
-//         { "status": "ta novo parça" },
-//         { "status": "ta meio riscado" }
-//     ]
-//     console.log(status[i].status);
-//     var teste = status[i].status
-//     return teste
-// }
 function sortItems() {
     let n = Math.floor((Math.random() * caixa.length));
     let resp = document.getElementById('resp')
-
-
 
     let i = Math.floor((Math.random() * 3));
     var status = [
@@ -115,10 +137,6 @@ function sortItems() {
     ]
     console.log(status[i].status);
     var teste = status[i].status
-
-
-
-
 
 
     if (n == 0 || n == 1) {
@@ -132,6 +150,31 @@ function sortItems() {
         <h3 class="resp-name">${caixa[n].weapon} - ${caixa[n].name}</h3> 
         <h3 class="resp-name">Status: ${teste}</h3> 
         `
+
+
+
+
+
+
+        // for (let i = 2; i < caixa.length; i++) {
+        //     resp.innerHTML += `
+        //     <img class="resp-img" src="assets/imgs/${caixa[1].boxName}/${caixa[i].img}">
+        //     `
+        //     // <img class="resp-img" src="assets/imgs/${caixa[1].boxName}/${caixa[n].img}">
+        // }
+
+
+console.log(caixa, "caixa aqui");
+
+
+
+
+
+
+
+
+
+
     }
 }
 
