@@ -1,67 +1,87 @@
-*{
+* {
   margin: 0;
   padding: 0;
   outline: none;
   font-family: sans-serif;
 }
-body{
+body {
   background: #4d4d4d;
 }
-// .sidebar{
-//   background: black;
-  
-//   &-item{
-//     width: 25px;
-//   }
-// }
-.main{
-  // display: flex;
-  // justify-content: center;
-  // align-items: center;
-  
-
-  width: 80%;
+.header {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 10px 0;
+  background: grey;
+  &-btn {
+    list-style-type: none;
+    color: white;
+    font-size: 20px;
+    padding: 5px 20px;
+    background: black;
+    border-radius: 20px;
+    cursor: pointer;
+  }
+}
+.main {
+  width: 90%;
   margin: 0 auto;
   position: relative;
 
-  &-boxes{
-    // display: flex;
+  &-boxes {
+    display: none;
+    &.active{
+      display: flex;
+    }
     // justify-content: center;
-    &-box{
-
-      &-btn{
+    &-box {
+      &-btn {
         background: transparent;
         border: none;
         cursor: pointer;
+        &-img {
+          width: 150px;
+        }
       }
     }
   }
-  
-  .boxItems{
+  &-inventory {
+    display: none;
+    background: red;
+    height: 30px;
+    &.active{
+      display: flex;
+    }
+  }
+  .boxItems {
     display: flex;
     flex-wrap: wrap;
     background: #25252e;
-    &-item{
-      &-weapon{
+    &-item {
+      // width: 225px;
+      margin-right: 10px;
+      &-weapon {
         color: white;
         font-weight: 700;
       }
-      &-name{
+      &-name {
         color: white;
         font-weight: 100;
       }
+      &-img {
+        height: 150px;
+      }
     }
   }
-  .boxBtn{
+  .boxBtn {
     display: flex;
     align-items: center;
-    &-img{
+    &-img {
       width: 80px;
     }
-    &-name{
+    &-name {
       color: white;
     }
-    &-btn{
+    &-btn {
       background: #066906;
       color: white;
       text-transform: uppercase;
@@ -71,13 +91,10 @@ body{
       cursor: pointer;
     }
   }
-
 }
 
-
-
-.background{
-  background: url('../imgs/background.jpg') no-repeat;
+.background {
+  background: url("../imgs/background.jpg") no-repeat;
   background-size: cover;
   // opacity: 0.7;
   height: 100vh;
@@ -86,7 +103,7 @@ body{
   position: absolute;
   z-index: -1;
 }
-.resp{
+.resp {
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
@@ -102,31 +119,29 @@ body{
   z-index: -1;
   opacity: 0;
   transition: 0.5s;
-  &.active{
+  &.active {
     z-index: 1;
     opacity: 1;
   }
-  &-btn{
+  &-btn {
     position: absolute;
     top: 10px;
     right: 10px;
     cursor: pointer;
     font-size: 0;
     height: 36px;
-    background: url(../imgs/cancel.png)no-repeat;
+    background: url(../imgs/cancel.png) no-repeat;
     background-size: auto;
     width: 36px;
     border: none;
   }
 }
 
-
-
-.slick-slider{
+.slick-slider {
   align-items: center;
 }
-.slick-next{
-  background: url('../imgs/arrow.png') no-repeat;
+.slick-next {
+  background: url("../imgs/arrow.png") no-repeat;
   border: none;
   font-size: 0;
   background-position: center;
@@ -134,8 +149,8 @@ body{
   height: 40px;
   cursor: pointer;
 }
-.slick-prev{
-  background: url('../imgs/arrow.png') no-repeat;
+.slick-prev {
+  background: url("../imgs/arrow.png") no-repeat;
   border: none;
   font-size: 0;
   background-position: center;
@@ -144,6 +159,3 @@ body{
   cursor: pointer;
   transform: rotate(180deg);
 }
-
-
-

@@ -81,9 +81,31 @@ var boxes = {
         { "name": "Exo", "weapon": "Nova", "rarity": "industrial level", "img": "nova-exo.png" },
         { "name": "Carnivore", "weapon": "MAC-10", "rarity": "industrial level", "img": "mac10-carnivore.png" },
         { "name": "Violent Daimyo", "weapon": "Five-SeveN", "rarity": "industrial level", "img": "fiveseven-violent-daimyo.png" }
+    ],
+    "clutch": [
+        {"key": "key.png"},
+        {"boxName": "clutch"},
+        { "name": "Neo-Noir", "weapon": "M4A4", "rarity": "hidden", "img": "m4a4-neo-noir.png" },
+        { "name": "Bloodsport", "weapon": "MP7", "rarity": "hidden", "img": "mp7-bloodsport.png" },
+        { "name": "Mortis", "weapon": "AWP", "rarity": "exotic", "img": "awp-mortis.png" },
+        { "name": "Cortex", "weapon": "USP-S", "rarity": "exotic", "img": "usps-cortex.png" },
+        { "name": "Stymphalian", "weapon": "AUG", "rarity": "remarkable", "img": "aug-stymphalian.png" },
+        { "name": "Moonrise", "weapon": "Glock-18", "rarity": "remarkable", "img": "glock18-moonrise.png" },
+        { "name": "Arctic Wolf", "weapon": "UMP-45", "rarity": "remarkable", "img": "ump45-arctic-wolf.png" },
+        { "name": "SWAG-7", "weapon": "MAG-7", "rarity": "remarkable", "img": "mag7-swag7.png" },
+        { "name": "Lionfish", "weapon": "Negev", "rarity": "remarkable", "img": "negev-lionfish.png" },
+        { "name": "Wild Six", "weapon": "Nova", "rarity": "remarkable", "img": "nova-wild-six.png" },
+        { "name": "Grip", "weapon": "R8 Revolver", "rarity": "industrial level", "img": "r8revolver-grip.png" },
+        { "name": "Urban Hazard", "weapon": "P2000", "rarity": "industrial level", "img": "p2000-urban-hazard.png" },
+        { "name": "Black Sand", "weapon": "MP9", "rarity": "industrial level", "img": "mp9-black-sand.png" },
+        { "name": "Flame Test", "weapon": "Five-SeveN", "rarity": "industrial level", "img": "fiveseven-flame-test.png" },
+        { "name": "Aloha", "weapon": "SG 553", "rarity": "industrial level", "img": "sg553-aloha.png" },
+        { "name": "Night Riot", "weapon": "PP-Bizon", "rarity": "industrial level", "img": "ppbizon-night-riot.png" },
+        { "name": "Oxide Blaze", "weapon": "XM1014", "rarity": "industrial level", "img": "xm1014-oxide-blaze.png" }
     ]
 }
-
+let inventory = document.getElementById("inventory")
+let boxesBox = document.getElementById("boxes")
 let caixa
 function callBox(value) {
     let boxItems = document.getElementById('boxItems')
@@ -97,6 +119,9 @@ function callBox(value) {
         break;
         case 'falchion':
           caixa = boxes.falchion
+        break;
+        case 'clutch':
+          caixa = boxes.clutch
         break;
         case 'hidra':
           caixa = boxes.hidra
@@ -122,8 +147,34 @@ function callBox(value) {
     <h4 id="itemName" class="boxBtn-name">Usar chave da ${value}</h4>
     <button id="itemBtn" class="boxBtn-btn" onclick="sortItems()">destrancar recipiente</button>`
 }
+function checkInventory() {
+    var inventoryItems = localStorage.getItem("inventoryItems");
+    console.log(inventoryItems);
+
+
+    if (localStorage.hasOwnProperty("arrBox") && localStorage.hasOwnProperty("arrItem")) {
+        var testearr = JSON.parse(localStorage.getItem("arrBox"))
+        var testearrr = JSON.parse(localStorage.getItem("arrItem"))
+        console.log(testearr);
+        console.log(testearrr);
+    }
+
+
+
+
+}
+
 function callResp() {
     resp.classList.toggle("active")
+}
+function callInventory() {
+    inventory.classList.add("active")
+    boxesBox.classList.remove("active")
+    checkInventory()
+}
+function callBoxes() {
+    boxesBox.classList.add("active")
+    inventory.classList.remove("active")
 }
 function sortItems() {
     let n = Math.floor((Math.random() * caixa.length));
@@ -152,10 +203,6 @@ function sortItems() {
         `
 
 
-
-
-
-
         // for (let i = 2; i < caixa.length; i++) {
         //     resp.innerHTML += `
         //     <img class="resp-img" src="assets/imgs/${caixa[1].boxName}/${caixa[i].img}">
@@ -164,20 +211,52 @@ function sortItems() {
         // }
 
 
-console.log(caixa, "caixa aqui");
+        console.log(caixa, "caixa aqui");
 
 
 
 
-
-
-
-
-
+        addStorage(caixa, n)
 
     }
 }
+let arrBox = new Array()
+let arrItem = new Array()
+function addStorage(caixa, n) {
+    console.log("caixa sorteada" , caixa[n]);
+    let nameBox = caixa[1].boxName
+    let itemName = caixa[n].name
+    arrBox.push(nameBox)
+    arrItem.push(itemName)
+    // console.log(arrBox);
+    // console.log(arrItem);
+    // localStorage.setItem("inventoryItems",  caixa[n]);
+    localStorage.setItem("arrBox", JSON.stringify(arrBox))
+    localStorage.setItem("arrItem", JSON.stringify(arrItem))
 
+
+
+
+
+    // /**
+    //  * Verifica se a propriedade existe
+    //  * Caso exista, converte de String para Object
+    //  */
+    // if (localStorage.hasOwnProperty("peoples")) {
+    //   peoples = JSON.parse(localStorage.getItem("peoples"))
+    // }
+  
+    // /* Adiciona um novo valor no array criado */
+    // peoples.push({name: inputPeople.value})
+  
+    // /* Salva o item */
+    // localStorage.setItem("peoples", JSON.stringify(peoples))
+
+
+
+
+
+}
 
 
 $(document).ready(function () {
@@ -186,7 +265,8 @@ $(document).ready(function () {
         infinite: true,
         arrows: true,
         speed: 300,
-        slidesToShow: 2,
+        slidesToShow: 3,
         slidesToScroll: 1,
+        centerMode: true
     });
 });

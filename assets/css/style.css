@@ -9,16 +9,63 @@ body {
   background: #4d4d4d;
 }
 
+.header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  padding: 10px 0;
+  background: grey;
+}
+
+.header-btn {
+  list-style-type: none;
+  color: white;
+  font-size: 20px;
+  padding: 5px 20px;
+  background: black;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
 .main {
-  width: 80%;
+  width: 90%;
   margin: 0 auto;
   position: relative;
+}
+
+.main-boxes {
+  display: none;
+}
+
+.main-boxes.active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .main-boxes-box-btn {
   background: transparent;
   border: none;
   cursor: pointer;
+}
+
+.main-boxes-box-btn-img {
+  width: 150px;
+}
+
+.main-inventory {
+  display: none;
+  background: red;
+  height: 30px;
+}
+
+.main-inventory.active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .main .boxItems {
@@ -30,6 +77,10 @@ body {
   background: #25252e;
 }
 
+.main .boxItems-item {
+  margin-right: 10px;
+}
+
 .main .boxItems-item-weapon {
   color: white;
   font-weight: 700;
@@ -38,6 +89,10 @@ body {
 .main .boxItems-item-name {
   color: white;
   font-weight: 100;
+}
+
+.main .boxItems-item-img {
+  height: 150px;
 }
 
 .main .boxBtn {
