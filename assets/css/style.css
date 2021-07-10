@@ -58,14 +58,57 @@ body {
 
 .main-inventory {
   display: none;
-  background: red;
-  height: 30px;
+  background: #272121;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 80vh;
+  margin-top: 5vh;
+  position: absolute;
+  top: 0;
+  width: 100%;
 }
 
 .main-inventory.active {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+
+.main-inventory-resp {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+}
+
+.main-inventory-resp-text {
+  color: white;
+  letter-spacing: 2px;
+  margin-top: 65px;
+}
+
+.main-inventory-resp-btn {
+  background: grey;
+  color: white;
+  padding: 5px 20px;
+  border-radius: 10px;
+  border: none;
+  margin-top: 30px;
+  cursor: pointer;
 }
 
 .main .boxItems {

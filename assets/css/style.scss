@@ -46,10 +46,37 @@ body {
   }
   &-inventory {
     display: none;
-    background: red;
-    height: 30px;
+    background: #272121;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    margin-top: 5vh;
+    position: absolute;
+    top: 0;
+    width: 100%;
     &.active{
       display: flex;
+    }
+    &-resp{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      &-text{
+        color: white;
+        letter-spacing: 2px;
+        margin-top: 65px;
+      }
+      &-btn{
+        background: grey;
+        color: white;
+        padding: 5px 20px;
+        border-radius: 10px;
+        border: none;
+        margin-top: 30px;
+        cursor: pointer;
+      }
     }
   }
   .boxItems {

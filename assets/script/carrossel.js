@@ -152,11 +152,23 @@ function checkInventory() {
     console.log(inventoryItems);
 
 
-    if (localStorage.hasOwnProperty("arrBox") && localStorage.hasOwnProperty("arrItem")) {
+    if (localStorage.hasOwnProperty("inventory")) {
         var testearr = JSON.parse(localStorage.getItem("arrBox"))
         var testearrr = JSON.parse(localStorage.getItem("arrItem"))
         console.log(testearr);
         console.log(testearrr);
+        inventory.innerHTML = `
+        <div class="main-inventory-resp">
+            <button class="main-inventory-resp-btn" onclick="callInventory()">fechar</button>
+        </div>`
+    }else{
+        console.log('hasahus auhsahsuas')
+        inventory.innerHTML = `
+        <div class="main-inventory-resp">
+            <img class="main-inventory-resp-img" src="./assets/imgs/notFound.png">
+            <h3 class="main-inventory-resp-text">Você ainda não tem nenhum item no inventário. Abra uma caixa!</h3>
+            <button class="main-inventory-resp-btn" onclick="callInventory()">fechar</button>
+        </div>`
     }
 
 
@@ -168,12 +180,12 @@ function callResp() {
     resp.classList.toggle("active")
 }
 function callInventory() {
-    inventory.classList.add("active")
-    boxesBox.classList.remove("active")
+    inventory.classList.toggle("active")
+    // boxesBox.classList.remove("active")
     checkInventory()
 }
 function callBoxes() {
-    boxesBox.classList.add("active")
+    // boxesBox.classList.add("active")
     inventory.classList.remove("active")
 }
 function sortItems() {
@@ -220,22 +232,38 @@ function sortItems() {
 
     }
 }
-let arrBox = new Array()
-let arrItem = new Array()
+let arrInventory = new Array()
+let arrTest = new Array()
 function addStorage(caixa, n) {
     console.log("caixa sorteada" , caixa[n]);
     let nameBox = caixa[1].boxName
     let itemName = caixa[n].name
-    arrBox.push(nameBox)
-    arrItem.push(itemName)
-    // console.log(arrBox);
-    // console.log(arrItem);
-    // localStorage.setItem("inventoryItems",  caixa[n]);
-    localStorage.setItem("arrBox", JSON.stringify(arrBox))
-    localStorage.setItem("arrItem", JSON.stringify(arrItem))
+    let itemImg = caixa[n].img
+    let itemWeapon = caixa[n].weapon
+    let item = `${nameBox}_${itemWeapon}_${itemName}_${itemImg}`
+    let testee
+    if (localStorage.hasOwnProperty("inventory")) {
+        testee = JSON.parse(localStorage.getItem("inventory"))
+        console.log(testee);
+        
+        for (let i = 0; i < testee.length; i++) {
+            // console.log(testee[i]);
+            arrTest.push(testee[i]);
 
+        }
+        
+        
+        
+        
+        arrInventory.push(arrTest, item)
+        // arrInventory.push(item)
+        localStorage.setItem("inventory", JSON.stringify(arrInventory))
+    }else{
+        arrInventory.push(item)
+        localStorage.setItem("inventory", JSON.stringify(arrInventory))
+    }
 
-
+    console.log(arrTest, "teste ta aqui mano");
 
 
     // /**
