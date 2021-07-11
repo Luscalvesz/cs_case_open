@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 
 <head>
   <meta charset="UTF-8">
@@ -11,35 +11,35 @@
 </head>
 
 <body>
-  <header class="header">
-    <button class="header-btn" onclick="callBoxes()">cases</button>
-    <button class="header-btn" onclick="callInventory()">inventory</button>
-  </header>
+  <aside class="sidebar">
+    <button class="sidebar-btn" onclick="callBoxes()"><img src="./assets/imgs/chest.png"></button>
+    <button class="sidebar-btn" onclick="callInventory()"><img src="./assets/imgs/backpack.png" ></button>
+  </aside>
   <main class="main">
     <ul class="main-boxes active" id="boxes">
       <li class="main-boxes-box">
         <button class="main-boxes-box-btn" onclick="callBox(value)" value="falchion">
-          <img id="batata" class="main-boxes-box-btn-img" src="./assets/imgs/falchion/case.png">
+          <img class="main-boxes-box-btn-img" src="./assets/imgs/falchion/case.png">
         </button>
       </li>
       <li class="main-boxes-box">
         <button class="main-boxes-box-btn" onclick="callBox(value)" value="snakebite">
-          <img id="batata" class="main-boxes-box-btn-img" src="./assets/imgs/snakebite/case.png">
+          <img class="main-boxes-box-btn-img" src="./assets/imgs/snakebite/case.png">
         </button>
       </li>
       <li class="main-boxes-box">
         <button class="main-boxes-box-btn" onclick="callBox(value)" value="hidra">
-          <img id="img" class="main-boxes-box-btn-img" src="./assets/imgs/hidra/case.png">
+          <img class="main-boxes-box-btn-img" src="./assets/imgs/hidra/case.png">
         </button>
       </li>
       <li class="main-boxes-box">
         <button class="main-boxes-box-btn" onclick="callBox(value)" value="gamma">
-          <img id="img2" class="main-boxes-box-btn-img" src="./assets/imgs/gamma/case.png">
+          <img class="main-boxes-box-btn-img" src="./assets/imgs/gamma/case.png">
         </button>
       </li>
       <li class="main-boxes-box">
         <button class="main-boxes-box-btn" onclick="callBox(value)" value="clutch">
-          <img id="img4" class="main-boxes-box-btn-img" src="./assets/imgs/clutch/case.png">
+          <img class="main-boxes-box-btn-img" src="./assets/imgs/clutch/case.png">
         </button>
       </li>
     </ul>
@@ -49,8 +49,8 @@
       <div class="main-inventory-box" id="inventoryBox"></div>
     </div>
     
-    <section id="boxItems" class="boxItems"></section>
     <section id="boxBtn" class="boxBtn"></section>
+    <section id="boxItems" class="boxItems"></section>
     <section id="resp" class="resp"></section>
   </main>
 

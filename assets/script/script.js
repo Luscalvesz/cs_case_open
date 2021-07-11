@@ -134,6 +134,18 @@ function callBox(value) {
         caixa = boxes.snakebite
     }
 
+    boxBtn.innerHTML = `
+    <h4 id="itemName" class="boxBtn-name">Use key to unlock ${value} case</h4>
+    <div class="boxBtn-images">
+        <img id="itemImg" class="boxBtn-images-img" src="./assets/imgs/${value}/${caixa[0].key}">
+        <img id="itemImgBox" class="boxBtn-images-img" src="./assets/imgs/${value}/case.png">
+    </div>
+    <div class="boxBtn-unlock">
+        <p class="boxBtn-unlock-name">Key can only be used ONCE</p>
+        <button id="itemBtn" class="boxBtn-unlock-btn" onclick="sortItems()">Unlock case</button>
+    </div>
+    <p class="boxBtn-text">Items that might be in this case:</p>
+    `
     for (let i = 2; i < caixa.length; i++) {
         boxItems.innerHTML += `
         <div class="boxItems-item">
@@ -143,10 +155,6 @@ function callBox(value) {
         </div>`
     }
 
-    boxBtn.innerHTML = `
-    <img id="itemImg" class="boxBtn-img" src="./assets/imgs/${value}/${caixa[0].key}">
-    <h4 id="itemName" class="boxBtn-name">Usar chave da ${value}</h4>
-    <button id="itemBtn" class="boxBtn-btn" onclick="sortItems()">destrancar recipiente</button>`
 }
 function checkInventory() {
     var inventoryItems = JSON.parse(localStorage.getItem("inventory"))
@@ -155,14 +163,6 @@ function checkInventory() {
 
     if (localStorage.hasOwnProperty("inventory")) {
         console.log(inventoryItems);
-        
-
-        // inventory.innerHTML += `
-        // <div class="main-inventory-resp">
-        //     <h2 class="main-inventory-resp-title">Inventárioooo</h2>
-        //     <button class="main-inventory-resp-btn" onclick="callInventory()">fechar</button>
-        // </div>`
-
         
         inventoryItems.forEach(element => {
             const item = element.split("_");
@@ -198,9 +198,6 @@ function checkInventory() {
             <button class="main-inventory-resp-btn" onclick="callInventory()">fechar</button>
         </div>`
     }
-
-
-
 
 }
 
@@ -241,20 +238,7 @@ function sortItems() {
         <h3 class="resp-name">${caixa[n].weapon} - ${caixa[n].name}</h3> 
         <h3 class="resp-name">Status: ${teste}</h3> 
         `
-
-
-        // for (let i = 2; i < caixa.length; i++) {
-        //     resp.innerHTML += `
-        //     <img class="resp-img" src="assets/imgs/${caixa[1].boxName}/${caixa[i].img}">
-        //     `
-        //     // <img class="resp-img" src="assets/imgs/${caixa[1].boxName}/${caixa[n].img}">
-        // }
-
-
         console.log(caixa, "caixa aqui");
-
-
-
 
         addStorage(caixa, n)
 
@@ -280,9 +264,6 @@ function addStorage(caixa, n) {
 
         }
         
-        
-        
-        
         // arrInventory.push(arrTest, item)
         arrInventory.push(item)
         localStorage.setItem("inventory", JSON.stringify(arrInventory))
@@ -292,24 +273,6 @@ function addStorage(caixa, n) {
     }
 
     console.log(arrTest, "teste ta aqui mano");
-
-
-    // /**
-    //  * Verifica se a propriedade existe
-    //  * Caso exista, converte de String para Object
-    //  */
-    // if (localStorage.hasOwnProperty("peoples")) {
-    //   peoples = JSON.parse(localStorage.getItem("peoples"))
-    // }
-  
-    // /* Adiciona um novo valor no array criado */
-    // peoples.push({name: inputPeople.value})
-  
-    // /* Salva o item */
-    // localStorage.setItem("peoples", JSON.stringify(peoples))
-
-
-
 
 
 }

@@ -6,33 +6,33 @@
 }
 
 body {
-  background: #4d4d4d;
+  background: #151E27;
 }
 
-.header {
+.sidebar {
+  width: 5%;
+  position: absolute;
+  height: 100vh;
+  background: grey;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
-  padding: 10px 0;
-  background: grey;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
-.header-btn {
-  list-style-type: none;
-  color: white;
-  font-size: 20px;
-  padding: 5px 20px;
-  background: black;
-  border-radius: 20px;
+.sidebar-btn {
+  background: transparent;
+  border: none;
   cursor: pointer;
+  margin-top: 35px;
 }
 
 .main {
   width: 90%;
-  margin: 0 auto;
+  margin-left: 7.5%;
   position: relative;
 }
 
@@ -132,34 +132,79 @@ body {
 }
 
 .main .boxItems-item-img {
-  height: 150px;
+  height: 125px;
 }
 
 .main .boxBtn {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-}
-
-.main .boxBtn-img {
-  width: 80px;
+  position: relative;
 }
 
 .main .boxBtn-name {
   color: white;
 }
 
-.main .boxBtn-btn {
+.main .boxBtn-images {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.main .boxBtn-images-img {
+  width: 80px;
+}
+
+.main .boxBtn-unlock {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.main .boxBtn-unlock-name {
+  color: orange;
+  font-size: 10px;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+.main .boxBtn-unlock-btn {
   background: #066906;
   color: white;
   text-transform: uppercase;
-  padding: 5px 10px;
+  padding: 5px 35px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+}
+
+.main .boxBtn-text {
+  color: #7495B5;
+  font-weight: 600;
+  margin: 45px 0 25px 0;
+}
+
+.main .boxBtn-text::before {
+  content: "";
+  width: 100%;
+  height: 2px;
+  background: #0b3042;
+  position: absolute;
+  display: block;
+  left: 0;
+  bottom: 70px;
 }
 
 .background {
