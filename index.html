@@ -12,8 +12,8 @@
 
 <body>
   <aside class="sidebar">
-    <button class="sidebar-btn" onclick="callBoxes()"><img src="./assets/imgs/chest.png"></button>
-    <button class="sidebar-btn" onclick="callInventory()"><img src="./assets/imgs/backpack.png" ></button>
+    <button class="sidebar-btn" onclick="callBoxes()"><img id="iconBox" src="./assets/imgs/chest.png"></button>
+    <button class="sidebar-btn" onclick="callInventory()"><img id="iconInventory" src="./assets/imgs/backpack.png" ></button>
   </aside>
   <main class="main">
     <ul class="main-boxes active" id="boxes">
@@ -49,7 +49,10 @@
       <div class="main-inventory-box" id="inventoryBox"></div>
     </div>
     
-    <section id="boxBtn" class="boxBtn"></section>
+    <section id="boxBtn" class="boxBtn">
+
+      <h3 class="boxBtn-text">Chose one of these boxes and open to get some weapons skins!</h3>
+    </section>
     <section id="boxItems" class="boxItems"></section>
     <section id="resp" class="resp"></section>
   </main>

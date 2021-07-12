@@ -1,7 +1,7 @@
 var boxes = {
     "snakebite": [
-        {"key": "key.png"},
-        {"boxName": "snakebite"},
+        { "key": "key.png" },
+        { "boxName": "snakebite" },
         { "name": "In Living Color", "weapon": "M4A4", "rarity": "hidden", "img": "M4a4-in-living-color.png" },
         { "name": "The Traitor", "weapon": "USP-S", "rarity": "hidden", "img": "Usp-s-the-traitor.png" },
         { "name": "XOXO", "weapon": "XM1014", "rarity": "exotic", "img": "Xm1014-xoxo.png" },
@@ -21,8 +21,8 @@ var boxes = {
         { "name": "Windblown", "weapon": "Nova", "rarity": "industrial level", "img": "Nova-windblown.png" }
     ],
     "falchion": [
-        {"key": "key.png"},
-        {"boxName": "falchion"},
+        { "key": "key.png" },
+        { "boxName": "falchion" },
         { "name": "faca caraio", "weapon": "Falchion", "rarity": "hidden", "img": "falchion-knife.png" },
         { "name": "Hyper Beast", "weapon": "Awp", "rarity": "hidden", "img": "awp-hyper-beast.png" },
         { "name": "Aquamarine Revenge", "weapon": "AK-47", "rarity": "hidden", "img": "ak-47-aquamarine-revenge.png" },
@@ -42,8 +42,8 @@ var boxes = {
         { "name": "Rocket Pop", "weapon": "Galil AR", "rarity": "industrial level", "img": "galilar-rocket-pop.png" },
     ],
     "hidra": [
-        {"key": "key.png"},
-        {"boxName": "hidra"},
+        { "key": "key.png" },
+        { "boxName": "hidra" },
         { "name": "Oni Taiji", "weapon": "AWP", "rarity": "hidden", "img": "awp-oni-taiji.png" },
         { "name": "Hyper Beast", "weapon": "Five-SeveN", "rarity": "hidden", "img": "five-seven-hyper-beast.png" },
         { "name": "Hellfire", "weapon": "M4A4", "rarity": "hidden", "img": "m4a4-hellfire.png" },
@@ -63,8 +63,8 @@ var boxes = {
         { "name": "Blueprint", "weapon": "USP-S", "rarity": "industrial level", "img": "usps-blueprint.png" },
     ],
     "gamma": [
-        {"key": "key.png"},
-        {"boxName": "gamma"},
+        { "key": "key.png" },
+        { "boxName": "gamma" },
         { "name": "Mecha Industries", "weapon": "M4A1-S", "rarity": "hidden", "img": "m4a1s-mecha-industries.png" },
         { "name": "Wasteland Rebel", "weapon": "Glock-18", "rarity": "hidden", "img": "glock18-wasteland-rebel.png" },
         { "name": "Bloodsport", "weapon": "SCAR-20", "rarity": "exotic", "img": "scar20-bloodsport.png" },
@@ -83,8 +83,8 @@ var boxes = {
         { "name": "Violent Daimyo", "weapon": "Five-SeveN", "rarity": "industrial level", "img": "fiveseven-violent-daimyo.png" }
     ],
     "clutch": [
-        {"key": "key.png"},
-        {"boxName": "clutch"},
+        { "key": "key.png" },
+        { "boxName": "clutch" },
         { "name": "Neo-Noir", "weapon": "M4A4", "rarity": "hidden", "img": "m4a4-neo-noir.png" },
         { "name": "Bloodsport", "weapon": "MP7", "rarity": "hidden", "img": "mp7-bloodsport.png" },
         { "name": "Mortis", "weapon": "AWP", "rarity": "exotic", "img": "awp-mortis.png" },
@@ -107,31 +107,34 @@ var boxes = {
 let inventory = document.getElementById("inventory")
 let inventoryBox = document.getElementById("inventoryBox")
 let boxesBox = document.getElementById("boxes")
+
 let caixa
+
+
 function callBox(value) {
     let boxItems = document.getElementById('boxItems')
     let boxBtn = document.getElementById('boxBtn')
     boxItems.innerHTML = ""
     boxBtn.innerHTML = ""
 
-    switch(value) {
+    switch (value) {
         case 'snakebite':
-          caixa = boxes.snakebite
-        break;
+            caixa = boxes.snakebite
+            break;
         case 'falchion':
-          caixa = boxes.falchion
-        break;
+            caixa = boxes.falchion
+            break;
         case 'clutch':
-          caixa = boxes.clutch
-        break;
+            caixa = boxes.clutch
+            break;
         case 'hidra':
-          caixa = boxes.hidra
-        break;
+            caixa = boxes.hidra
+            break;
         case 'gamma':
-          caixa = boxes.gamma
-        break;
+            caixa = boxes.gamma
+            break;
         default:
-        caixa = boxes.snakebite
+            caixa = boxes.snakebite
     }
 
     boxBtn.innerHTML = `
@@ -147,12 +150,40 @@ function callBox(value) {
     <p class="boxBtn-text">Items that might be in this case:</p>
     `
     for (let i = 2; i < caixa.length; i++) {
-        boxItems.innerHTML += `
-        <div class="boxItems-item">
-            <img id="itemImg" class="boxItems-item-img" src="./assets/imgs/${value}/${caixa[i].img}">
-            <h4 id="itemName" class="boxItems-item-weapon">${caixa[i].weapon}</h4>
-            <h4 id="itemName" class="boxItems-item-name">${caixa[i].name}</h4>
-        </div>`
+
+        switch (caixa[i].rarity) {
+            case 'hidden':
+                boxItems.innerHTML += `
+                <div class="boxItems-item">
+                    <img id="itemImg" class="boxItems-item-img" src="./assets/imgs/${value}/${caixa[i].img}" style="border-left: 4px solid red">
+                    <h4 id="itemName" class="boxItems-item-weapon">${caixa[i].weapon}</h4>
+                    <h4 id="itemName" class="boxItems-item-name">${caixa[i].name}</h4>
+                </div>`
+                break;
+            case 'exotic':
+                boxItems.innerHTML += `
+                <div class="boxItems-item">
+                    <img id="itemImg" class="boxItems-item-img" src="./assets/imgs/${value}/${caixa[i].img}" style="border-left: 4px solid #bc078c">
+                    <h4 id="itemName" class="boxItems-item-weapon">${caixa[i].weapon}</h4>
+                    <h4 id="itemName" class="boxItems-item-name">${caixa[i].name}</h4>
+                </div>`
+                break;
+            case 'remarkable':
+                boxItems.innerHTML += `
+                <div class="boxItems-item">
+                    <img id="itemImg" class="boxItems-item-img" src="./assets/imgs/${value}/${caixa[i].img}" style="border-left: 4px solid #600090">
+                    <h4 id="itemName" class="boxItems-item-weapon">${caixa[i].weapon}</h4>
+                    <h4 id="itemName" class="boxItems-item-name">${caixa[i].name}</h4>
+                </div>`
+                break;
+            default:
+                boxItems.innerHTML += `
+                <div class="boxItems-item">
+                    <img id="itemImg" class="boxItems-item-img" src="./assets/imgs/${value}/${caixa[i].img}" style="border-left: 4px solid #2929d0">
+                    <h4 id="itemName" class="boxItems-item-weapon">${caixa[i].weapon}</h4>
+                    <h4 id="itemName" class="boxItems-item-name">${caixa[i].name}</h4>
+                </div>`
+        }
     }
 
 }
@@ -163,7 +194,7 @@ function checkInventory() {
 
     if (localStorage.hasOwnProperty("inventory")) {
         console.log(inventoryItems);
-        
+
         inventoryItems.forEach(element => {
             const item = element.split("_");
             console.log(item);
@@ -175,7 +206,7 @@ function checkInventory() {
             console.log(itemWeapon);
             console.log(itemName);
             console.log(itemImg);
-            
+
             inventoryBox.innerHTML += `
             <div class="main-inventory-item">
                 
@@ -188,8 +219,8 @@ function checkInventory() {
         });
 
 
-        
-    }else{
+
+    } else {
         console.log('hasahus auhsahsuas')
         inventory.innerHTML = `
         <div class="main-inventory-resp">
@@ -229,7 +260,7 @@ function sortItems() {
 
     if (n == 0 || n == 1) {
         sortItems()
-    }else{
+    } else {
         callResp()
         resp.innerHTML = `
         <button class="resp-btn" onclick="callResp()">close</button>
@@ -247,7 +278,7 @@ function sortItems() {
 let arrInventory = new Array()
 let arrTest = new Array()
 function addStorage(caixa, n) {
-    console.log("caixa sorteada" , caixa[n]);
+    console.log("caixa sorteada", caixa[n]);
     let nameBox = caixa[1].boxName
     let itemName = caixa[n].name
     let itemImg = caixa[n].img
@@ -257,17 +288,17 @@ function addStorage(caixa, n) {
     if (localStorage.hasOwnProperty("inventory")) {
         testee = JSON.parse(localStorage.getItem("inventory"))
         console.log(testee);
-        
+
         for (let i = 0; i < testee.length; i++) {
             // console.log(testee[i]);
             arrTest.push(testee[i]);
 
         }
-        
+
         // arrInventory.push(arrTest, item)
         arrInventory.push(item)
         localStorage.setItem("inventory", JSON.stringify(arrInventory))
-    }else{
+    } else {
         arrInventory.push(item)
         localStorage.setItem("inventory", JSON.stringify(arrInventory))
     }
