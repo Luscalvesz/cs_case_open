@@ -192,6 +192,17 @@ body {
     width: 36px;
     border: none;
   }
+  &-text{
+    color: white;
+    font-size: 30px;
+  }
+  &-img{
+    width: 350px;
+  }
+  &-name{
+    color: white;
+    margin-bottom: 10px;
+  }
 }
 
 .slick-slider {
