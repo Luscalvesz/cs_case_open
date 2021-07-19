@@ -254,9 +254,7 @@ function sortItems() {
         { "status": "ta novo parça" },
         { "status": "ta meio riscado" }
     ]
-    console.log(status[i].status);
-    var teste = status[i].status
-
+    var statusName = status[i].status
 
     if (n == 0 || n == 1) {
         sortItems()
@@ -267,12 +265,9 @@ function sortItems() {
         <h2 class="resp-text">parabéns iha, vc ganhou isso aqui ó<h2>
         <img class="resp-img" src="assets/imgs/${caixa[1].boxName}/${caixa[n].img}"> 
         <h3 class="resp-name">${caixa[n].weapon} - ${caixa[n].name}</h3> 
-        <h3 class="resp-name">Status: ${teste}</h3> 
+        <h3 class="resp-name">Status: ${statusName}</h3> 
         `
-        console.log(caixa, "caixa aqui");
-
         addStorage(caixa, n)
-
     }
 }
 let arrInventory = new Array()
@@ -286,28 +281,19 @@ function addStorage(caixa, n) {
     let item = `${nameBox}_${itemWeapon}_${itemName}_${itemImg}`
     let testee
     if (localStorage.hasOwnProperty("inventory")) {
-        testee = JSON.parse(localStorage.getItem("inventory"))
-        console.log(testee);
 
         for (let i = 0; i < testee.length; i++) {
-            // console.log(testee[i]);
-            arrTest.push(testee[i]);
-
+            arrTest.push(testee[i])
         }
 
-        // arrInventory.push(arrTest, item)
         arrInventory.push(item)
         localStorage.setItem("inventory", JSON.stringify(arrInventory))
     } else {
         arrInventory.push(item)
         localStorage.setItem("inventory", JSON.stringify(arrInventory))
     }
-
-    console.log(arrTest, "teste ta aqui mano");
-
-
+    
 }
-
 
 $(document).ready(function () {
     $('#boxes').slick({

@@ -31,7 +31,6 @@ body {
     &.active{
       display: flex;
     }
-    // justify-content: center;
     &-box {
       &-btn {
         background: transparent;
@@ -155,7 +154,6 @@ body {
 .background {
   background: url("../imgs/background.jpg") no-repeat;
   background-size: cover;
-  // opacity: 0.7;
   height: 100vh;
   filter: blur(3px);
   width: 100%;
